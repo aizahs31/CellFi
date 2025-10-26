@@ -1102,7 +1102,6 @@ export default function App() {
                     <Text style={[styles.note, { color: TEXT_COLOR, marginTop: 0, marginLeft: 0, alignSelf: 'center', fontSize: 12, fontWeight: 'bold' }]}>
                         {isOnline ? "ONLINE" : "OFFLINE"}
                     </Text>
-                    <Feather name={isOnline ? "globe" : "wifi-off"} size={12} color={TEXT_COLOR} style={{ marginLeft: 5 }} />
                 </View>
               </View>
               <Text style={[styles.note, { color: LIGHT_TEXT_COLOR, marginTop: 5, fontSize: 10 }]}>
