@@ -386,8 +386,7 @@ const SettingsModal = ({ visible, onClose, currentKey, onSaveKey, onRemoveKey })
       <View style={styles.modalOverlay}>
         <Pressable style={styles.modalDismissArea} onPress={onClose} />
         <View style={styles.settingsModalContent}>
-          {/* FONT CHANGE APPLIED HERE */}
-          <Text style={[styles.modalTitle, { fontFamily: "BBH_Sans_Bartle" }]}>
+          <Text style={[styles.modalTitle, { marginBottom: 15 }]}>
             Profile & Settings
           </Text>
 
@@ -1049,7 +1048,6 @@ export default function App() {
                 style={[
                   styles.heroTitle,
                   styles.glowingText,
-                  { fontFamily: "BBH_Sans_Bartle" },
                 ]}
               >
                 CellFi
@@ -1058,7 +1056,6 @@ export default function App() {
                 style={[
                   styles.heroSubtitle,
                   styles.glowingText,
-                  { fontFamily: "BBH_Sans_Bartle" },
                 ]}
               >
                 Your Secure Offline Transaction Hub
@@ -1094,19 +1091,20 @@ export default function App() {
                 Current Network Nonce:
               </Text>
               <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                <Text style={[styles.messageText, { fontFamily: 'monospace', fontSize: 18, color: PRIMARY_COLOR, flex: 1 }]}>
-                  {currentNonce === null ? "Loading..." : currentNonce}
-                </Text>
-                {/* VISIBILITY IMPROVEMENT APPLIED HERE */}
-                <View style={{ flexDirection: 'row', alignItems: 'center', backgroundColor: isOnline ? 'green' : ERROR_COLOR, borderRadius: 10, paddingHorizontal: 8, paddingVertical: 3 }}>
-                    <Text style={[styles.note, { color: TEXT_COLOR, marginTop: 0, marginLeft: 0, alignSelf: 'center', fontSize: 12, fontWeight: 'bold' }]}>
-                        {isOnline ? "ONLINE" : "OFFLINE"}
-                    </Text>
+                <View>
+                  <Text style={{ color: PRIMARY_COLOR, fontSize: 12, fontWeight: 'bold'}}>
+                      {isOnline ? "ONLINE" : "OFFLINE"}
+                  </Text>
+                  <Text style={[styles.note, { color: LIGHT_TEXT_COLOR, marginTop: 5, fontSize: 10 }]}>
+                    {nonceSyncStatus}
+                  </Text>  
+                </View>
+                <View>
+                  <Text style={[styles.messageText, { fontFamily: 'BBH_Sans_Bartle', fontSize: 30, color: TEXT_COLOR}]}>
+                    {currentNonce === null ? "Loading..." : currentNonce}
+                  </Text>
                 </View>
               </View>
-              <Text style={[styles.note, { color: LIGHT_TEXT_COLOR, marginTop: 5, fontSize: 10 }]}>
-                {nonceSyncStatus}
-              </Text>
             </View>
 
             {/* Transaction Cards Section */}
@@ -1257,20 +1255,18 @@ const styles = StyleSheet.create({
     elevation: 10,
   },
   heroTitle: {
-    fontSize: 48,
-    fontWeight: "800",
-    color: PRIMARY_COLOR,
+    fontSize: 36,
+    color: TEXT_COLOR,
     marginBottom: 5,
     zIndex: 10,
     fontFamily: "BBH_Sans_Bartle",
   },
   heroSubtitle: {
-    fontSize: 16,
     color: LIGHT_TEXT_COLOR,
     textAlign: "center",
     marginBottom: 20,
     zIndex: 10,
-    fontFamily: "BBH_Sans_Bartle",
+    fontFamily: "Poppins_Regular",
   },
   completeProfileContainer: {
     flexDirection: "row",
@@ -1517,8 +1513,7 @@ const styles = StyleSheet.create({
     maxHeight: "90%",
   },
   modalTitle: {
-    fontSize: 22,
-    fontWeight: "bold",
+    fontSize: 16,
     marginBottom: 20,
     color: TEXT_COLOR,
     borderBottomWidth: 1,
